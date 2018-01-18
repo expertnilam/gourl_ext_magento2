@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<script src="Escorpien_Gourl::js/cryptobox.min.js" src_type=""/>
+	</head>
+    <referenceContainer name="content">
+        <block class="Escorpien\Gourl\Block\Display" name="gourl_display" template="Escorpien_Gourl::gourl.phtml" />
+    </referenceContainer>
+</page>

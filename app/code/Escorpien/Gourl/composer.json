@@ -1,0 +1,29 @@
+{
+    "name": "coingate/magento2-plugin",
+    "type": "magento2-module",
+    "description": "Bitcoin integration for Magento 2 via Escorpien",
+    "version": "1.0.4",
+    "keywords": [
+      "coingate",
+      "bitcoin",
+      "merchant",
+      "magento"
+    ],
+    "homepage": "https://coingate.com",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Escorpien and contributors",
+            "homepage": "https://github.com/coingate/magento2-plugin/graphs/contributors"
+        }
+    ],
+    "require": {
+        "coingate/coingate-php": "1.*"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Escorpien\\Gourl\\": ""
+        }
+    }
+}

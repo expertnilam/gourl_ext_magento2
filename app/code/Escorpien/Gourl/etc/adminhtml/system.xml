@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Escorpien admin configuration
+*
+* @category    Escorpien
+* @package     Escorpien_Gourl
+* @author      Escorpien
+* @copyright   Escorpien (https://gourl.io)
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="escorpien_gourl" translate="label" type="text" sortOrder="88" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Bitcoin via GoUrl</label>
+                <comment>
+                    <![CDATA[<a href="https://gourl.io/" target="_blank">Click here to sign up for Go URL account.</a>]]>
+                </comment>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+
+
+                <field id="bitcoin_publickey" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bitcoin Public Key</label>
+                </field>
+                <field id="bitcoin_privatekey" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bitcoin Private Key</label>
+                </field>
+
+
+                <field id="bitcoincash_publickey" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>bitcoincash Public Key</label>
+                </field>
+                <field id="bitcoincash_privatekey" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>bitcoincash Private Key</label>
+                </field>
+
+                
+
+                <field id="litecoin_publickey" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>litecoin Public Key</label>
+                </field>
+                <field id="litecoin_privatekey" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>litecoin Private Key</label>
+                </field>
+
+
+                <field id="dash_publickey" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>dash Public Key</label>
+                </field>
+                <field id="dash_privatekey" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>dash Private Key</label>
+                </field>
+
+
+                <field id="dogecoin_publickey" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>dogecoin Public Key</label>
+                </field>
+                <field id="dogecoin_privatekey" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>dogecoin Private Key</label>
+                </field>
+
+
+                <field id="speedcoin_publickey" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>speedcoin Public Key</label>
+                </field>
+                <field id="speedcoin_privatekey" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>speedcoin Private Key</label>
+                </field>
+
+
+                <field id="reddcoin_publickey" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>reddcoin Public Key</label>
+                </field>
+                <field id="reddcoin_privatekey" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>reddcoin Private Key</label>
+                </field>
+
+
+                <field id="potcoin_publickey" translate="label" type="text" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>potcoin Public Key</label>
+                </field>
+                <field id="potcoin_privatekey" translate="label" type="text" sortOrder="18" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>potcoin Private Key</label>
+                </field>
+
+
+                <field id="feathercoin_publickey" translate="label" type="text" sortOrder="19" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>feathercoin Public Key</label>
+                </field>
+                <field id="feathercoin_privatekey" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>feathercoin Private Key</label>
+                </field>
+
+
+                <field id="vertcoin_publickey" translate="label" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>vertcoin Public Key</label>
+                </field>
+                <field id="vertcoin_privatekey" translate="label" type="text" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>vertcoin Private Key</label>
+                </field>
+
+
+                <field id="peercoin_publickey" translate="label" type="text" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>peercoin Public Key</label>
+                </field>
+                <field id="peercoin_privatekey" translate="label" type="text" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>peercoin Private Key</label>
+                </field>
+
+
+                <field id="monetaryunit_publickey" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>monetaryunit Public Key</label>
+                </field>
+                <field id="monetaryunit_privatekey" translate="label" type="text" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>monetaryunit Private Key</label>
+                </field>
+
+
+
+
+                <!-- <field id="app_id" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>App ID</label>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Key</label>
+                </field>
+                <field id="api_secret" translate="label" type="obscure" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="receive_currency" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Currency you want to receive</label>
+                    <source_model>Escorpien\Gourl\Model\Source\Receivecurrencies</source_model>
+                </field>
+                <field id="sandbox_mode" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sandbox Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="51" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="min_order_total" translate="label" type="text" sortOrder="98" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum Order Total</label>
+                </field>
+                <field id="max_order_total" translate="label" type="text" sortOrder="99" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Maximum Order Total</label>
+                    <comment>Leave empty to disable limit</comment>
+                </field> -->
+
+
+
+
+
+            </group>
+
+
+        </section>
+    </system>
+</config>

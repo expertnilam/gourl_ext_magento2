@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Escorpien admin configuration
+*
+* @category    Escorpien
+* @package     Escorpien_Gourl
+* @author      Escorpien
+* @copyright   Escorpien (https://gourl.io)
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+   <!--  <virtualType name="Escorpien\Gourl\Model\ConfigProvider" type="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="escorpien_gourl" xsi:type="const">Escorpien\Gourl\Model\Payment::CODE</item>
+            </argument>
+        </arguments>
+    </virtualType> -->
+
+   <!--  <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="escorpien_gourl_config_provider" xsi:type="object">Escorpien\Gourl\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type> -->
+
+</config>

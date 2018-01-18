@@ -1,0 +1,149 @@
+<?php
+		
+	
+	
+	
+
+	$om = \Magento\Framework\App\ObjectManager::getInstance();
+	$request = $om->get('Magento\Framework\App\RequestInterface');
+
+	
+
+	
+
+
+	$params = $request->getParams(); 
+
+	
+
+ 	$orderID = $params['id']; 
+
+ 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	
+	
+
+	$orderObj = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId($orderID);
+	$amountUSD = $orderObj->getGrandTotal();
+
+
+
+	
+ 	
+	
+	require_once( "cryptoapi_php/cryptobox.class.php" );
+	
+	$userID 		= "";				
+	$userFormat		= "COOKIE";			
+	/*$orderID 		= "invoice000383";	*/
+	
+										
+	$period			= "NOEXPIRY";		
+	$def_language	= "en";				
+
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$coinCollection = $objectManager->create('Escorpien\Gourl\Model\ResourceModel\Coin\Collection')
+	->addFieldToFilter('enabled', ['eq' => 1]);
+	$coinCollection->load();
+
+	$coinNames = array();
+	
+	foreach ($coinCollection as $key => $coin) {
+		$coinNames[] = $coin->getName();
+	}
+
+	
+
+
+	$available_payments = $coinNames;
+	
+	$def_payment	= $available_payments[0];		
+
+
+	
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	
+	$bitcoin_publickey = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('payment_us/escorpien_gourl/bitcoin_publickey');
+	$bitcoin_publickey = $conf = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('payment_us/escorpien_gourl/bitcoin_privatekey');
+
+	
+
+
+	$all_keys = array();
+
+	foreach ($coinCollection as $key => $coin) {
+		
+		$all_keys[$coin->getName()] = array("public_key" => $coin->getPublicKey(),  "private_key" => $coin->getPrivateKey());
+	}
+
+
+	if (!in_array($def_payment, $available_payments)) $available_payments[] = $def_payment;  
+	foreach($available_payments as $v)
+	{
+
+		if (!isset($all_keys[$v]["public_key"]) || !isset($all_keys[$v]["private_key"])) die("Please add your public/private keys for '$v' in \$all_keys variable");
+		elseif (!strpos($all_keys[$v]["public_key"], "PUB"))  die("Invalid public key for '$v' in \$all_keys variable");
+		elseif (!strpos($all_keys[$v]["private_key"], "PRV")) die("Invalid private key for '$v' in \$all_keys variable");
+		elseif (strpos(CRYPTOBOX_PRIVATE_KEYS, $all_keys[$v]["private_key"]) === false) die("Please add your private key for '$v' in variable \$cryptobox_private_keys, file cryptobox.config.php.");
+	}
+	
+	
+	
+	
+	$coinName = cryptobox_selcoin($available_payments, $def_payment);
+	$public_key  = $all_keys[$coinName]["public_key"];
+	$private_key = $all_keys[$coinName]["private_key"];
+	$options = array(
+		"public_key"  => $public_key, 
+		"private_key" => $private_key,
+		"webdev_key"  => "", 		
+		"orderID"     => $orderID, 	
+		"userID"      => $userID, 	
+		"userFormat"  => $userFormat,
+		"amount"   	  => 0,			
+		"amountUSD"   => $amountUSD,
+		"period"      => $period, 	
+		"language"	  => $def_language
+	);
+	
+	
+	$box = new Cryptobox ($options);
+	$coinName = $box->coin_name(); 
+	if ($box->is_paid()) 
+	{
+
+		$box->set_status_processed();  
+		$message =  "Thank you for order (order #".$orderID.", payment #".$box->payment_id().")";
+	}
+	else 
+	{
+		$message = "This invoice has not been paid yet";
+	}
+	
+	
+
+
+	// Optional - Language selection list for payment box (html code)
+	$languages_list = display_language_box($def_language);
+	
+	
+	
+	// Optional - Coin selection list (html code)
+	if (!$box->is_paid()) $coins_list = display_currency_box($available_payments, $def_payment, $def_language, 60, "margin: 80px 0 0 0");
+
+
+
+
+
+	
+?>
+
+
+
+<?php if (!$box->is_paid()) echo $coins_list . ""; ?>
+<!-- <br><br> -->
+<div style='margin:30px 0 5px 300px'>Language: &#160; <?php echo $languages_list; ?></div>
+<?php echo $box->display_cryptobox(true, 580, 230, "border-radius:15px;border:1px solid #eee;padding:3px 6px;margin:10px;", "display:inline-block;max-width:580px;padding:15px 20px;border:1px solid #eee;margin:7px;line-height:25px;"); ?>
+
+<h3>Message :</h3>
+<h2 style='color:#999'><?php echo $message; ?></h2>
+

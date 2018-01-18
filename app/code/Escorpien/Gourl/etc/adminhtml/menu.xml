@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Escorpien_Gourl::parent" title="Gourl" module="Escorpien_Gourl" sortOrder="100" resource="Escorpien_Gourl::parent"/>
+        
+		<add id="Escorpien_Gourl::coin" title="Escorpien Gourl" module="Escorpien_Gourl" sortOrder="20" parent="Escorpien_Gourl::parent" action="gourl/coin" resource="Escorpien_Gourl::coin"/>
+
+    </menu>
+</config>
